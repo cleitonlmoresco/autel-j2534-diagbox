@@ -1,0 +1,7 @@
+# backups locais gerados pelos scripts
+backups/
+*.reg
+
+# sobras de sistema
+Thumbs.db
+.DS_Store
