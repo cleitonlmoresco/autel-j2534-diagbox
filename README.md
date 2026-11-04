@@ -39,6 +39,7 @@ Outros adaptadores: [`docs/outros-adaptadores.md`](docs/outros-adaptadores.md)
 Matriz de versões validadas: [`docs/versoes.md`](docs/versoes.md)
 Trocar o idioma do DiagBox (ex.: chinês → português): [`docs/idioma.md`](docs/idioma.md)
 Usar o Autel J2534 no **Tech2Win** (GM): [`docs/tech2win.md`](docs/tech2win.md)
+Tutorial do **ODIS Engineering (VW)** e suas aplicações: [`docs/odis.md`](docs/odis.md)
 
 ---
 
@@ -64,6 +65,7 @@ Referência testada — **Windows 11 Pro 10.0.26300 (x64)**, **DiagBox 09.85** (
 | DiagBox 09.85 (PSA) | Autel MaxiVCI V200 (USB, FW V0.2c.0) | ✅ VCI aberta e selecionada (`Open=0`, status MCC `0`) |
 | DiagBox 09.85 | ACTIA XS (nativa) | ✅ caminho nativo (`SOFTWARE\ACTIA\Devices`), não usa J2534 |
 | Tech2Win 2.302 (GM) | Autel MaxiVCI V200 via **dpdu-passthru** (D-PDU→J2534) | ✅ VCI listada e selecionada (aviso E675228 esperado) |
+| ODIS Engineering 21.0.1 (VW) | Autel MaxiVCI V200 via **VW D-PDU API 33.1.0** (bridge J2534) | ✅ módulo J2534 enumerado (`PDU_MODST_AVAIL`); conexão veicular a validar |
 | Outros J2534 | Bosch MDI/MDI 2, DENSO VIM, Drew Mongoose, OTC VIM | 🔶 visíveis no scan; sujeitos a tuning por adaptador (`PCMToJ2534.ini`) |
 
 Detalhes de versões e como conferi-las: [`docs/versoes.md`](docs/versoes.md)
