@@ -158,6 +158,39 @@ Copy-Item C:\ProgramData\OE\MCD-Projects   "C:\AWRoot\backup_ODIS\MCD-Projects_$
 Copy-Item C:\ProgramData\OE\MCD-Projects-E "C:\AWRoot\backup_ODIS\MCD-Projects-E_$(Get-Date -Format yyyyMMdd)" -Recurse -Force
 ```
 
+### Pacote "Projects 04.2025" (repack JustDiag)
+
+Detalhes observados no arquivo `4.Projects 04.2025 SENHA=justdiag.exe`:
+
+- Formato: **RAR5 autoextraível** (SFX), senha **`justdiag`**
+- Destino definido no SFX: `C:\ProgramData\OE\` (Overwrite=1)
+- Compactado: ~2,1 GB · Extraído: ~9 GB
+- Conteúdo: `MCD-Projects-E\VWMCD\<código-da-marca>\...` — projetos por marca/chassi:
+  - `AU…` Audi, `SE…` SEAT, `SK…` Škoda, `BY…` Bentley, `VW…` Volkswagen, entre outros
+- A instalação do ODIS-E **21.0.1** traz apenas os projetos base `VWFLEET` e `VWVIN` (~26 MB); o pacote adiciona a cobertura por veículo
+
+Extração recomendada (sem executar o SFX, com 7-Zip):
+
+```powershell
+# backup e extração
+Move-Item C:\ProgramData\OE\MCD-Projects-E "C:\AWRoot\backup_ODIS\MCD-Projects-E_$(Get-Date -Format yyyyMMdd_HHmmss)" -Force
+& 'C:\Program Files\7-Zip\7z.exe' x -pjustdiag -y -oC:\ProgramData\OE "C:\caminho\4.Projects 04.2025 SENHA=justdiag.exe"
+```
+
+> O pacote é um repack de terceiros (não oficial VW). Use por sua conta e risco; mantenha o backup para reverter.
+
+### Resultado da instalação (referência)
+
+Executado em 04/11/2026 com o ODIS-E 21.0.1:
+
+- `MCD-Projects-E` passou de **2 pastas base** (`VWFLEET`, `VWVIN`, 26 MB) para **387 pastas**, **9,04 GB**
+- Marcas presentes: Audi (`AU…`), SEAT (`SE…`), Škoda (`SK…`), Bentley (`BY…`), VW (`VW…`), VN, SV, LB, MEB, entre outras
+- Dados dos projetos: `DatabaseVersionInfo` de 09/03/2025 (pacote 04/2025)
+- Backups: `C:\AWRoot\backup_ODIS\MCD-Projects-E_*` e `MCD-Projects_*`
+- O `VRT_VPT-Engineering` do pacote **não** foi aplicado (o ODIS 21.0.1 já tinha versão mais nova); cópia guardada em `backup_ODIS\VRT_VPT-Engineering_04-2025`
+
+Após instalar projetos, **reinicie o ODIS** para ele recarregar a lista de projetos.
+
 ---
 
 ## 10. Configurações úteis (`PDUAPI_VW.ini`)
