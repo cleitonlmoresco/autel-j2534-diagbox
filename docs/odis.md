@@ -188,6 +188,13 @@ Executado em 04/11/2026 com o ODIS-E 21.0.1:
 - Dados dos projetos: `DatabaseVersionInfo` de 09/03/2025 (pacote 04/2025)
 - Backups: `C:\AWRoot\backup_ODIS\MCD-Projects-E_*` e `MCD-Projects_*`
 - O `VRT_VPT-Engineering` do pacote **não** foi aplicado (o ODIS 21.0.1 já tinha versão mais nova); cópia guardada em `backup_ODIS\VRT_VPT-Engineering_04-2025`
+- **Atenção:** o pacote **não inclui** os projetos base `VWVIN` e `VWFLEET` — sem eles o ODIS exibe o aviso *"The VWVIN project was not found in the directory ..."*. Restaure-os do backup após a instalação:
+
+```powershell
+$bak = 'C:\AWRoot\backup_ODIS\MCD-Projects-E_pre04_20261104_145317\VWMCD'
+Copy-Item "$bak\VWVIN"   'C:\ProgramData\OE\MCD-Projects-E\VWMCD\VWVIN' -Recurse -Force
+Copy-Item "$bak\VWFLEET" 'C:\ProgramData\OE\MCD-Projects-E\VWMCD\VWFLEET' -Recurse -Force
+```
 
 Após instalar projetos, **reinicie o ODIS** para ele recarregar a lista de projetos.
 
