@@ -40,6 +40,7 @@ Matriz de versões validadas: [`docs/versoes.md`](docs/versoes.md)
 Trocar o idioma do DiagBox (ex.: chinês → português): [`docs/idioma.md`](docs/idioma.md)
 Usar o Autel J2534 no **Tech2Win** (GM): [`docs/tech2win.md`](docs/tech2win.md)
 Tutorial do **ODIS Engineering (VW)** e suas aplicações: [`docs/odis.md`](docs/odis.md)
+ODIS-E — blocos de valores medidos (com descrições): [`docs/odis-valores.md`](docs/odis-valores.md)
 
 ---
 
