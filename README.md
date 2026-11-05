@@ -41,6 +41,7 @@ Trocar o idioma do DiagBox (ex.: chinês → português): [`docs/idioma.md`](doc
 Usar o Autel J2534 no **Tech2Win** (GM): [`docs/tech2win.md`](docs/tech2win.md)
 Tutorial do **ODIS Engineering (VW)** e suas aplicações: [`docs/odis.md`](docs/odis.md)
 ODIS-E — blocos de valores medidos (com descrições): [`docs/odis-valores.md`](docs/odis-valores.md)
+Usar o Autel J2534 no **Renault CLIP** (CAN CLIP): [`docs/clip-renault.md`](docs/clip-renault.md)
 
 ---
 
@@ -52,6 +53,8 @@ ODIS-E — blocos de valores medidos (com descrições): [`docs/odis-valores.md`
 | `scripts/diagbox_j2534_unblock.ps1` | Neutraliza a denylist do `VCIManager.xml` (com backup); `-Restore` desfaz |
 | `scripts/check_diagbox_vci.ps1` | Mostra as linhas relevantes dos logs (`log_VCIManager.txt` + `TraceComm`) |
 | `scripts/set_diagbox_language.ps1` | Troca o idioma da interface (`-Code pt_BR`); `-Restore` desfaz |
+| `scripts/install_clip_alliancevi.ps1` | Cria a entrada J2534 **Alliance VI** (`Vendor=79B`/`Name=1B`) para o CLIP; `-Remove` desfaz |
+| `scripts/test_j2534.ps1` | Testa `PassThruOpen`/`ReadVersion` direto na DLL J2534 (rodar no PowerShell **32 bits**) |
 
 Todos exigem PowerShell **como Administrador** (gravação em `HKLM`).
 
@@ -66,6 +69,7 @@ Referência testada — **Windows 11 Pro 10.0.26300 (x64)**, **DiagBox 09.85** (
 | DiagBox 09.85 (PSA) | Autel MaxiVCI V200 (USB, FW V0.2c.0) | ✅ VCI aberta e selecionada (`Open=0`, status MCC `0`) |
 | DiagBox 09.85 | ACTIA XS (nativa) | ✅ caminho nativo (`SOFTWARE\ACTIA\Devices`), não usa J2534 |
 | Tech2Win 2.302 (GM) | Autel MaxiVCI V200 via **dpdu-passthru** (D-PDU→J2534) | ✅ VCI listada e selecionada (aviso E675228 esperado) |
+| Renault CLIP 237 (PDD 237_2_0_1) | Autel MaxiVCI V200 (USB, FW **V1.45**) via entrada J2534 **Alliance VI** (`Vendor=79B`/`Name=1B`) | ✅ sensor listado e selecionável (serial `0x75915A00`); teste multiplex sujeito a timeouts de ECU |
 | ODIS Engineering 21.0.1 (VW) | Autel MaxiVCI V200 via **VW D-PDU API 33.1.0** (bridge J2534) | ✅ módulo J2534 enumerado (`PDU_MODST_AVAIL`); conexão veicular a validar |
 | Outros J2534 | Bosch MDI/MDI 2, DENSO VIM, Drew Mongoose, OTC VIM | 🔶 visíveis no scan; sujeitos a tuning por adaptador (`PCMToJ2534.ini`) |
 
