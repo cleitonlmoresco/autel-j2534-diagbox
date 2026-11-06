@@ -54,6 +54,7 @@ Usar o Autel J2534 no **Renault CLIP** (CAN CLIP): [`docs/clip-renault.md`](docs
 | `scripts/check_diagbox_vci.ps1` | Mostra as linhas relevantes dos logs (`log_VCIManager.txt` + `TraceComm`) |
 | `scripts/set_diagbox_language.ps1` | Troca o idioma da interface (`-Code pt_BR`); `-Restore` desfaz |
 | `scripts/install_clip_alliancevi.ps1` | Cria a entrada J2534 **Alliance VI** (`Vendor=79B`/`Name=1B`) para o CLIP; `-Remove` desfaz |
+| `scripts/reparar_e_abrir_clip.ps1` | Garante a entrada Alliance VI, reinicia e abre o CLIP (usado pelo atalho "CLIP com VCI") |
 | `scripts/test_j2534.ps1` | Testa `PassThruOpen`/`ReadVersion` direto na DLL J2534 (rodar no PowerShell **32 bits**) |
 
 Todos exigem PowerShell **como Administrador** (gravação em `HKLM`).

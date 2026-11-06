@@ -187,6 +187,25 @@ Relatos da comunidade (obdii365) e documentação interna da Renault (`C:\CLIP\C
 
 ---
 
+## Recorrência: o Maxi PC Suite remove a entrada
+
+**Observado em campo (06/11/2026):** após a correção funcionar, a entrada `Alliance VI` desapareceu do registro depois que o **Maxi PC Suite foi executado**. O PC Suite re-registra apenas as 13 chaves próprias da Autel; a entrada adicional (Alliance VI) é removida.
+
+**Solução:** usar o atalho **"CLIP com VCI"**, que:
+
+1. Verifica/cria a entrada `Alliance VI` (com backup automático em `C:\ProgramData\CLIP_VCI_Backup`)
+2. Fecha o CLIP (para reenumerar as VCIs)
+3. Abre o CLIP novamente
+
+```powershell
+# Script chamado pelo atalho (auto-eleva via UAC)
+.\scripts\reparar_e_abrir_clip.ps1
+```
+
+Regra prática: **sempre que abrir o Maxi PC Suite, use o atalho "CLIP com VCI" na próxima vez que for usar o CLIP.**
+
+---
+
 ## Reversão
 
 ```powershell
